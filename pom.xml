@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>tour-of-heroes-spark-java</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>2.9.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>3.17.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+    </dependencies>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+
+<!--                &lt;!&ndash; Specify the maven code generator plugin &ndash;&gt;-->
+<!--                &lt;!&ndash; Use org.jooq                for the Open Source Edition-->
+<!--                         org.jooq.pro            for commercial editions with Java 17 support,-->
+<!--                         org.jooq.pro-java-11    for commercial editions with Java 11 support,-->
+<!--                         org.jooq.pro-java-8     for commercial editions with Java 8 support,-->
+<!--                         org.jooq.trial          for the free trial edition with Java 17 support,-->
+<!--                         org.jooq.trial-java-11  for the free trial edition with Java 11 support,-->
+<!--                         org.jooq.trial-java-8   for the free trial edition with Java 8 support-->
+
+<!--                     Note: Only the Open Source Edition is hosted on Maven Central.-->
+<!--                           Import the others manually from your distribution &ndash;&gt;-->
+<!--                <groupId>org.jooq</groupId>-->
+<!--                <artifactId>jooq-codegen-maven</artifactId>-->
+<!--                <version>3.17.7</version>-->
+
+<!--                &lt;!&ndash; The plugin should hook into the generate goal &ndash;&gt;-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+
+<!--                &lt;!&ndash; Manage the plugin's dependency. In this example, we'll use a PostgreSQL database &ndash;&gt;-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.postgresql</groupId>-->
+<!--                        <artifactId>postgresql</artifactId>-->
+<!--                        <version>42.5.1</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+
+<!--                &lt;!&ndash; Specify the plugin configuration.-->
+<!--                     The configuration format is the same as for the standalone code generator &ndash;&gt;-->
+<!--                <configuration>-->
+
+<!--                    &lt;!&ndash; JDBC connection parameters &ndash;&gt;-->
+<!--                    <jdbc>-->
+<!--                        <driver>org.postgresql.Driver</driver>-->
+<!--                        <url>jdbc:postgresql://localhost:5432/</url>-->
+<!--                        <user>postgres</user>-->
+<!--                        <password>simple123</password>-->
+<!--                    </jdbc>-->
+
+<!--                    &lt;!&ndash; Generator parameters &ndash;&gt;-->
+<!--                    <generator>-->
+<!--                        <database>-->
+<!--                            <name>org.jooq.meta.postgres.PostgresDatabase</name>-->
+<!--                            <includes>.*</includes>-->
+<!--                            <excludes></excludes>-->
+<!--                            &lt;!&ndash; In case your database supports catalogs, e.g. SQL Server:-->
+<!--                            <inputCatalog>public</inputCatalog>-->
+<!--                              &ndash;&gt;-->
+<!--                            <inputSchema>public</inputSchema>-->
+<!--                        </database>-->
+<!--                        <target>-->
+<!--                            <packageName>org.jooq.codegen.maven.example</packageName>-->
+<!--                            <directory>target/generated-sources/jooq</directory>-->
+<!--                        </target>-->
+<!--                    </generator>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+</project>
