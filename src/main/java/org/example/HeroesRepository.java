@@ -12,7 +12,7 @@ public interface HeroesRepository {
 
     void createHero(Hero hero);
 
-    void updateHero(Request req);
+    void updateHero(Hero hero);
 
     void deleteHero(String id);
 

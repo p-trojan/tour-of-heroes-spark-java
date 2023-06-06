@@ -42,27 +42,19 @@ public class HeroesApplication {
         path("/api", () -> {
             before("/*", (q, a) -> {
                 log.info("API call");
-//                if(q.pathInfo().equals("/api/heroes/:id")) {
-//                    a.redirect("/api/heroes");
-//                }
             });
             get("/heroes", ((request, response) -> new Gson().toJson(repository.fetchHeroes())));
             post("/heroes", "application/json", (request, response) -> {
                 repository.createHero(new Gson().fromJson(request.body(), Hero.class));
-//                log.info(requestInfoToString(request));
-//                response.body("{}");
-//                response.status(201);
                 return "{}";
             });
             get("/heroes/:id", ((request, response) -> new Gson().toJson(repository.fetchHero(request.params(":id")))));
 
-            put("/heroes/:id","application/json" , ((request, response) -> {
-//                        repository.updateHero(request.params(":id"), new Gson().fromJson(request.body(), Hero.class));
-                repository.updateHero(request);
-                response.redirect("/api/heroes");
-//                response.body();
-//                response.status(200);
-                return "{}";
+            put("/heroes", "application/json", ((request, response) -> {
+                repository.updateHero(new Gson().fromJson(request.body(), Hero.class));
+                log.info("response: ", response);
+                response.status(204);
+                return response;
             }));
             after((q, a) -> log.info(requestInfoToString(q)));
             delete("/heroes/:id", ((request, response) -> {
@@ -72,17 +64,6 @@ public class HeroesApplication {
                 return response;
             }));
         });
-
-//        path("/api", () -> {
-//            put("/heroes/:heroId","application/json" , ((request, response) -> {
-////                        repository.updateHero(request.params(":id"), new Gson().fromJson(request.body(), Hero.class));
-//                repository.updateHero(request);
-//                response.body();
-//                response.status(200);
-//                return "{}";
-//            }));
-//        });
-//        after((request, response) -> log.info(requestAndResponseInfoToString(request, response)));
     }
 
     // Enables CORS on requests. This method is an initialization method and should be called once.
@@ -143,6 +124,4 @@ public class HeroesApplication {
             return gson.toJson(model);
         }
     }
-
-
 }

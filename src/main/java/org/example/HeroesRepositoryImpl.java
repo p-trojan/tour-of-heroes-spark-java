@@ -65,12 +65,12 @@ public class HeroesRepositoryImpl implements HeroesRepository {
         }
     }
 
-    public void updateHero(Request req) {
+    public void updateHero(Hero hero) {
         try (Connection connection = DriverManager.getConnection(url, username, pass)) {
             DSLContext dslContext = DSL.using(connection, SQLDialect.POSTGRES);
-            HeroesRecord record = dslContext.fetchOne(HEROES, HEROES.HERO_ID.eq(Integer.valueOf(req.params(":id"))));
-            record.setHeroId(Integer.valueOf(req.params(":id")));
-            record.setHeroName(new Gson().fromJson(req.body(), Hero.class).name());
+            HeroesRecord record = dslContext.fetchOne(HEROES, HEROES.HERO_ID.eq(hero.id()));
+//            record.setHeroId(hero.id());
+            record.setHeroName(hero.name());
             record.store();
         } catch (Exception e) {
             e.printStackTrace();
